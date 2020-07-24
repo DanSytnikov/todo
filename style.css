@@ -227,6 +227,10 @@ input {
     border-radius: 8px;
 }
 
+.taskEditForm.active input[type="text"] {
+    padding: 6px;
+}
+
 .task>p {
     position: relative;
     left: 80%;
