@@ -1,0 +1,239 @@
+body {
+    background-image: url(./src/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-y: auto;
+    counter-reset: taskNo;
+    font-family: cursive;
+    overflow-x: hidden;
+}
+
+.pageHead {
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 228, 196, 0.7);
+}
+
+.wrapper {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pageHead>h1 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+button,
+input {
+    outline: none;
+}
+
+#addNew_btn {
+    text-align: center;
+    height: 80%;
+    min-width: 80px;
+    width: 10%;
+    font-size: 18px;
+    margin: 4px 0;
+    padding: 0;
+    position: absolute;
+    top: 2px;
+    left: 14px;
+    border-radius: 24px;
+    font-family: cursive;
+}
+
+#searchForm {
+    position: fixed;
+    left: 80%;
+    top: 8px;
+}
+
+#search {
+    width: 110px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    background-image: url('src/search.png');
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    border-radius: 20px;
+}
+
+#search:focus {
+    width: 100%;
+}
+
+#createTable {
+    height: 500px;
+    width: 25%;
+    min-width: 250px;
+    position: fixed;
+    top: 64px;
+    left: 10px;
+    background-color: rgba(255, 228, 196, 0.7);
+    border-radius: 5px;
+    display: none;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+#createTable.active {
+    display: block;
+    animation: fadeIn 0.4s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#createTable h2 {
+    text-align: center;
+    width: 100%;
+}
+
+#createForm input[type="text"],
+#description {
+    margin: auto;
+    width: 90%;
+    margin-top: 20px;
+    display: block;
+}
+
+#title {
+    height: 34px;
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#description {
+    height: 40%;
+    overflow-y: auto;
+    resize: none;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#tableBtns {
+    display: flex;
+    width: 90%;
+    left: 20px;
+    position: absolute;
+    bottom: 8px;
+}
+
+#submit_btn {
+    font-size: 16px;
+    width: 70%;
+    height: 40px;
+    border-radius: 16px;
+}
+
+#cancel_btn {
+    font-size: 14px;
+    width: 25%;
+    margin-left: 16px;
+    border-radius: 16px;
+    background-color: rgba(255, 100, 100, 0.9);
+}
+
+
+/* TASKS */
+
+.task {
+    counter-increment: taskNo;
+    width: 78%;
+    background-color: salmon;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.taskData {
+    margin-left: 20px;
+}
+
+.taskBtns {
+    margin: 30px 0 0 20px;
+}
+
+.taskBtns button:not(.taskDone_btn) {
+    font-family: cursive;
+    font-size: 16px;
+    height: 34px;
+    min-width: 80px;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.taskDone_btn {
+    position: absolute;
+    right: 14%;
+    font-family: cursive;
+    font-size: 16px;
+    height: 34px;
+    min-width: 80px;
+    border-radius: 15px;
+}
+
+.taskEditForm {
+    position: absolute;
+    display: none;
+}
+
+.taskEditForm.active {
+    position: relative;
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    animation: fadeIn 0.3s;
+}
+
+.taskEditForm.active input {
+    height: 30px;
+    font-family: cursive;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.task>p {
+    position: relative;
+    left: 80%;
+}
+
+.task.done {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+.task.done:hover {
+    background-color: rgba(0, 255, 0, 0.6);
+}
